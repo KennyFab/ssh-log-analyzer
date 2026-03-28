@@ -43,8 +43,9 @@ with open("logs/sample_auth.log", "r", encoding="utf-8") as f:
                 successful[ip] = 1
 
 # --- REPORT ---
-
-
+print(f"Failed login attempts found: {count}")
+print()
+print("Attacks by IP:")
 THRESHOLD = 3
 for ip, attempts in attacks.items():
     location = get_location(ip)
