@@ -4,6 +4,9 @@ SSH ANALYSER
 
 import requests
 
+# --- LOCATION LOOKUP ---
+
+
 def get_location(ip):
     try:
         response = requests.get(f"http://ip-api.com/json/{ip}", timeout=3)
@@ -15,10 +18,12 @@ def get_location(ip):
     except:
         return "Location unavailable"
 
-
+# --- SETUP ---
 count = 0
 attacks = {}
 successful = {}
+
+# --- PARSE LOG FILE ---
 
 with open("logs/sample_auth.log", "r", encoding="utf-8") as f:
     for line in f:
@@ -37,7 +42,7 @@ with open("logs/sample_auth.log", "r", encoding="utf-8") as f:
             else:
                 successful[ip] = 1
 
-
+# --- REPORT ---
 print(f"Failed login attempts found: {count}")
 print()
 print("Attacks by IP:")
