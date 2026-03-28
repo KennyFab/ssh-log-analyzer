@@ -1,0 +1,12 @@
+Dec 10 06:55:46 server sshd[1234]: Failed password for invalid user admin from 192.168.1.105 port 43218 ssh2
+Dec 10 06:55:47 server sshd[1234]: Failed password for invalid user admin from 192.168.1.105 port 43219 ssh2
+Dec 10 06:55:48 server sshd[1234]: Failed password for invalid user admin from 192.168.1.105 port 43220 ssh2
+Dec 10 07:02:33 server sshd[1236]: Failed password for bob from 203.0.113.42 port 60001 ssh2
+Dec 10 07:02:34 server sshd[1236]: Failed password for bob from 203.0.113.42 port 60002 ssh2
+Dec 10 06:56:10 server sshd[1235]: Accepted password for alice from 10.0.0.15 port 51234 ssh2
+Dec 10 07:15:00 server sshd[1237]: Accepted password for bob from 10.0.0.20 port 52000 ssh2
+Dec 10 09:15:10 server sshd[1242]: Failed password for root from 45.33.32.156 port 9999 ssh2
+Dec 10 09:15:11 server sshd[1242]: Failed password for root from 45.33.32.156 port 9998 ssh2
+Dec 10 09:15:12 server sshd[1242]: Failed password for root from 45.33.32.156 port 9997 ssh2
+Dec 10 09:20:00 server sshd[1243]: Failed password for invalid user kenny from 192.168.1.105 port 44000 ssh2
+
