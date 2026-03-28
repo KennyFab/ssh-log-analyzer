@@ -43,18 +43,21 @@ with open("logs/sample_auth.log", "r", encoding="utf-8") as f:
                 successful[ip] = 1
 
 # --- REPORT ---
-print(f"Failed login attempts found: {count}")
-print()
-print("Attacks by IP:")
+
+
+THRESHOLD = 3
 for ip, attempts in attacks.items():
     location = get_location(ip)
-    if ip in successful:
-        print(f" {ip} {location} {attempts} (also successful)")
+    if attempts >= THRESHOLD:
+        alert = "BRUTE FORCE DETECTED"
     else:
-        print(f" {ip} {location} {attempts} attempts")
-
+        alert = ""
+    if ip in successful:
+        print(f"  {ip} {location} {attempts} attempts {alert} BREACH")
+    else:
+        print(f"  {ip} {location} {attempts} attempts {alert}")
 print()
+
 print("Successful logins:")
 for ip, count in successful.items():
     print(f" {ip} {count} successful logins")
-
