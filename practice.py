@@ -1,3 +1,21 @@
+"""
+SSH ANALYSER
+"""
+
+import requests
+
+def get_location(ip):
+    try:
+        response = requests.get(f"http://ip-api.com/json/{ip}", timeout=3)
+        data = response.json()
+        if data["status"] == "success":
+            return f"{data['city']}, {data['country']}"
+        else:
+            return "Unknown location"
+    except:
+        return "Location unavailable"
+
+
 count = 0
 attacks = {}
 successful = {}
@@ -24,12 +42,14 @@ print(f"Failed login attempts found: {count}")
 print()
 print("Attacks by IP:")
 for ip, attempts in attacks.items():
+    location = get_location(ip)
     if ip in successful:
-        print(f" {ip} {attempts} attempts (also successful)")
+        print(f" {ip} {location} {attempts} (also successful)")
     else:
-        print(f" {ip} {attempts} attempts")
+        print(f" {ip} {location} {attempts} attempts")
 
 print()
 print("Successful logins:")
 for ip, count in successful.items():
     print(f" {ip} {count} successful logins")
+
